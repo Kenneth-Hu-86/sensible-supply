@@ -23,9 +23,9 @@ jobs:
           fetch-depth: 0
       - uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.145.0'
+          hugo-version: '0.164.0'
           extended: true
-      - run: hugo --minify
+      - run: hugo --minify -b https://kenneth-hu-86.github.io/sensible-supply/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
