@@ -25,7 +25,7 @@ jobs:
         with:
           hugo-version: '0.164.0'
           extended: true
-      - run: hugo --minify -b https://kenneth-hu-86.github.io/sensible-supply/
+      - run: hugo --minify -b https://sensiblesupplysolutions.com/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
