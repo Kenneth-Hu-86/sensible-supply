@@ -1,0 +1,25 @@
+# -- Main Menu --
+[[main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 10
+
+[[main]]
+  name = "Collection"
+  url = "/collection/"
+  weight = 20
+
+[[main]]
+  name = "Our Story"
+  url = "/about/"
+  weight = 30
+
+[[main]]
+  name = "Our Process"
+  url = "/craftsmanship/"
+  weight = 35
+
+[[main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 40

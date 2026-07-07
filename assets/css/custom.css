@@ -1,0 +1,731 @@
+/* ====== 自定义深色导航栏 ====== */
+
+/* 隐藏 Congo 原生 header，完全用自定义的 */
+body > div > header.py-6 {
+  display: none !important;
+}
+
+#sb-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+
+.sb-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* Logo */
+.sb-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none !important;
+}
+.sb-logo img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 0;
+  margin: 0;
+}
+.sb-logo-text {
+  color: #1a1a1a;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* 菜单 */
+.sb-menu {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.sb-menu a {
+  color: #374151;
+  text-decoration: none !important;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0 1.1rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.sb-menu a:hover {
+  color: #7c2d12;
+  border-bottom-color: #7c2d12;
+}
+
+/* Custom Service 高亮按钮 */
+.sb-menu a.sb-cta {
+  background: #7c2d12;
+  color: #fff !important;
+  margin-left: 1rem;
+  padding: 0 1.4rem;
+  height: 36px;
+  border-radius: 2px;
+  border-bottom: none !important;
+  letter-spacing: 0.06em;
+}
+.sb-menu a.sb-cta:hover {
+  background: #991b1b;
+}
+
+/* 汉堡按钮（移动端显示） */
+.sb-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.sb-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #374151;
+  border-radius: 2px;
+}
+
+/* 移动端菜单 */
+#sb-mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  padding: 0.5rem 0;
+}
+#sb-mobile-menu a {
+  color: #374151;
+  padding: 0.75rem 2rem;
+  font-size: 0.88rem;
+  text-decoration: none !important;
+  border-bottom: 1px solid #f3f4f6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+#sb-mobile-menu a:hover {
+  color: #7c2d12;
+  background: #fef2f2;
+}
+#sb-mobile-menu.open {
+  display: flex;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .sb-menu { display: none; }
+  .sb-hamburger { display: flex; }
+}
+
+/* ====== 全宽布局覆盖 ====== */
+
+/* 去掉 Congo prose 和 article 的最大宽度/内边距限制 */
+.prose {
+  max-width: 100% !important;
+}
+article.prose {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+main {
+  padding: 0 !important;
+}
+/* Congo 默认给 article 加了 px 内边距，全部清掉 */
+main > article,
+main > div > article {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+/* article header（页面大标题）内缩一点，不要顶边 */
+article > header {
+  padding: 2.5rem 5vw 0;
+}
+
+/* ====== 隐藏标题锚点 # ====== */
+.group span a[aria-label="Anchor"] {
+  display: none !important;
+}
+
+/* ====== 图片全宽，无圆角，无边距 ====== */
+article img {
+  width: 100%;
+  height: auto;
+  border-radius: 0 !important;
+  margin: 0 0 0.5rem 0;
+  display: block;
+}
+
+/* 分隔线也全宽 */
+article hr {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* ====== Collection 产品图两列网格 ====== */
+.collection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.collection-grid .product-card {
+  display: flex;
+  flex-direction: column;
+}
+.collection-grid .product-card img {
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.collection-grid .product-card p {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+@media (max-width: 640px) {
+  .collection-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====== 分隔线优化 ====== */
+article hr {
+  border: none;
+  border-top: 1px solid #f3f4f6;
+  margin: 2.5rem 0;
+}
+
+/* ====== 正文内容区：内缩 5vw，不要顶边 ====== */
+article h1, article h2, article h3,
+article h4, article p, article ul,
+article ol, article blockquote,
+article table, article .inquiry-form,
+article a[href*="collection"],
+article a[href*="contact"] {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+/* ====== 标题样式 ====== */
+article h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  padding-top: 2rem;
+}
+article h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+article h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #7c2d12;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* ====== CTA 按钮 ====== */
+article a[href*="collection"],
+article a[href*="contact"] {
+  display: inline-block;
+  padding: 0.65rem 1.75rem;
+  border: 1.5px solid #7c2d12;
+  color: #7c2d12;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+  border-radius: 2px;
+  text-decoration: none !important;
+}
+article a[href*="collection"]:hover,
+article a[href*="contact"]:hover {
+  background: #7c2d12;
+  color: #fff;
+}
+
+/* ====== 页脚 ====== */
+footer {
+  border-top: 1px solid #f3f4f6;
+  margin-top: 3rem;
+}
+footer p {
+  font-size: 0.8rem;
+}
+
+/* ====== Contact 询盘表单 ====== */
+.inquiry-form {
+  background: #fafafa;
+  border: 1px solid #f3f4f6;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.inquiry-form input,
+.inquiry-form select,
+.inquiry-form textarea {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  background: #fff;
+  font-family: inherit;
+}
+.inquiry-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.inquiry-form button {
+  background: #7c2d12;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.inquiry-form button:hover {
+  background: #991b1b;
+}
+
+/* ====== WhatsApp 浮动按钮 ====== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #25d366;
+  color: #fff;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+  z-index: 999;
+  text-decoration: none !important;
+  transition: transform 0.2s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* ====== Collection 页面产品网格 ====== */
+
+/* 页面头部 */
+.coll-header {
+  text-align: center;
+  padding: 3rem 5vw 1.5rem;
+}
+.coll-header h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+  padding: 0 !important;
+}
+.coll-sub {
+  font-size: 0.95rem;
+  color: #6b7280;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 !important;
+}
+
+/* 产品网格：两列 */
+.coll-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0 2rem;
+  margin: 1.5rem auto 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 产品卡片 */
+.coll-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+/* 图片容器：1:1 比例 */
+.coll-img-wrap {
+  overflow: hidden;
+}
+.coll-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+.coll-card:hover .coll-img-wrap img {
+  transform: scale(1.03);
+}
+
+/* 产品信息 */
+.coll-info {
+  padding: 1rem 0.5rem 0;
+  text-align: center;
+}
+.coll-info h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.03em;
+  padding: 0 !important;
+}
+.coll-info p {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.5;
+  padding: 0 !important;
+}
+
+/* CTA 底部 */
+.coll-cta-section {
+  text-align: center;
+  padding: 3rem 5vw 4rem;
+}
+.coll-cta-section h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  padding: 0 !important;
+}
+.coll-cta-section p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  padding: 0 !important;
+}
+.coll-cta-section a {
+  display: inline-block;
+  padding: 0.65rem 1.75rem;
+  border: 1.5px solid #7c2d12;
+  color: #7c2d12;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  text-decoration: none !important;
+  transition: all 0.2s;
+}
+.coll-cta-section a:hover {
+  background: #7c2d12;
+  color: #fff;
+}
+
+/* 移动端：单列 */
+@media (max-width: 768px) {
+  .coll-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  .coll-card {
+    padding: 1rem;
+  }
+}
+
+/* =================================================================
+   COMPANY PROFILE (About Page) — 专业品牌官网风格
+   ================================================================= */
+
+/* About 页面所有元素不走全局 prose 内缩 */
+.ab-hero *,
+.ab-stats *,
+.ab-section *,
+.ab-section-alt *,
+.ab-brands *,
+.ab-certs *,
+.ab-gallery *,
+.ab-section-cta * {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* --- Hero 区块 --- */
+.ab-hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 420px;
+  max-height: 650px;
+  overflow: hidden;
+  margin: 0;
+}
+.ab-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+.ab-hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 4rem 5vw 3rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  color: #fff;
+}
+.ab-hero-overlay .ab-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+}
+.ab-hero-overlay h1 {
+  font-size: 2.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  padding: 0 !important;
+  color: #fff;
+}
+.ab-hero-overlay p {
+  font-size: 0.95rem;
+  max-width: 540px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+  padding: 0 !important;
+}
+
+/* --- 数字卡片 --- */
+.ab-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1100px;
+  margin: -3rem auto 4rem;
+  padding: 0 2rem;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 10;
+}
+.ab-stat-item {
+  background: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  border-radius: 4px;
+}
+.ab-stat-num {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #7c2d12;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.ab-stat-label {
+  display: block;
+  font-size: 0.78rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* --- 通用区块 --- */
+.ab-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+.ab-section-alt {
+  background: #fafaf8;
+  border-top: 1px solid #f0f0ed;
+  border-bottom: 1px solid #f0f0ed;
+  max-width: none;
+  padding: 4rem 2rem;
+}
+.ab-section-alt .ab-sec-title,
+.ab-section-alt .ab-sec-desc,
+.ab-section-alt .ab-certs {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ab-sec-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0 0 0.5rem;
+  padding: 0 !important;
+  letter-spacing: 0.02em;
+}
+.ab-sec-desc {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.88rem;
+  margin: 0 0 2rem;
+  padding: 0 !important;
+}
+
+/* --- 品牌客户墙 --- */
+.ab-brands {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.ab-brands span {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 2px;
+  font-size: 0.82rem;
+  color: #6b7280;
+  letter-spacing: 0.03em;
+}
+
+/* --- 认证徽章 --- */
+.ab-certs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.ab-cert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background: #fff;
+  min-width: 130px;
+  text-align: center;
+}
+.ab-cert strong {
+  font-size: 0.85rem;
+  color: #7c2d12;
+  letter-spacing: 0.04em;
+}
+.ab-cert span {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  margin-top: 0.25rem;
+}
+
+/* --- 工厂画廊 --- */
+.ab-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.ab-gallery-item {
+  margin: 0;
+  padding: 0;
+}
+.ab-gallery-item img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px !important;
+  margin: 0 0 0.75rem 0 !important;
+}
+.ab-gallery-item figcaption {
+  text-align: center;
+  padding: 0 0.5rem;
+}
+.ab-gallery-item figcaption strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #1a1a1a;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.ab-gallery-item figcaption {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+/* --- OEM CTA --- */
+.ab-section-cta {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.ab-section-cta p {
+  max-width: 550px;
+  margin: 0.75rem auto 1.5rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 0 !important;
+}
+.ab-cta-btn {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  background: #7c2d12;
+  color: #fff !important;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.82rem;
+  text-decoration: none !important;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.ab-cta-btn:hover {
+  background: #991b1b;
+}
+
+/* --- 响应式 --- */
+@media (max-width: 768px) {
+  .ab-hero { height: 50vh; min-height: 320px; }
+  .ab-hero-overlay h1 { font-size: 1.8rem; }
+  .ab-stats { grid-template-columns: 1fr 1fr; margin-top: -2rem; gap: 0.75rem; }
+  .ab-stat-num { font-size: 1.6rem; }
+  .ab-gallery { grid-template-columns: 1fr; }
+  .ab-certs { flex-direction: column; align-items: center; }
+  .ab-cert { width: 100%; max-width: 280px; flex-direction: row; justify-content: center; gap: 0.5rem; }
+}

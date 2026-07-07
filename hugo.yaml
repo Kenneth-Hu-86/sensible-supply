@@ -1,0 +1,53 @@
+baseURL: https://sensiblesupplysolutions.com/
+locale: en-us
+title: Sensible Bag
+copyright: "© 2026 Sensible Bag. All rights reserved."
+theme: congo
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  description: Premium handbags for the modern woman — crafted with purpose, designed for everyday elegance
+  author:
+    name: Sensible Bag
+
+  # --- Theme Settings ---
+  colorScheme: fire             # 配色方案: congo/ocean/sapphire/slate/fire/avocado
+  defaultAppearance: light
+  enableImageLazyLoading: true
+
+  header:
+    layout: basic
+    logo: img/logo.png          # 放 Logo 图片到 assets/img/logo.png
+    logoDark: img/logo-dark.png # 深色模式 Logo（可选）
+    showTitle: false
+
+  footer:
+    showCopyright: true
+    showThemeAttribution: true
+    showScrollToTop: true
+
+  homepage:
+    layout: page              # page = 纯内容页, profile = 个人简介风格
+
+  # --- Article Settings ---
+  article:
+    showDate: false
+    showDateUpdated: false
+    showAuthor: false
+    showReadingTime: false
+    showWordCount: false
+    showComments: false
+    showTaxonomies: false
+    showPagination: false
+    sharingLinks: ["facebook", "pinterest"]
+
+  # --- Social Links (footer icons) ---
+  social:
+    - icon: instagram
+      url: https://instagram.com/
+    - icon: pinterest
+      url: https://pinterest.com/

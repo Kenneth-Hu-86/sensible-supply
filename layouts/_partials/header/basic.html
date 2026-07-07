@@ -1,0 +1,41 @@
+{{/* Custom Sensible Bag — Dark Navbar */}}
+<header id="sb-navbar">
+  <div class="sb-nav-inner">
+
+    {{/* Logo 左侧 */}}
+    <a href="/" class="sb-logo">
+      {{ $logo := resources.Get "img/logo.png" }}
+      {{ if $logo }}
+        <img src="{{ $logo.Permalink }}" alt="Sensible Bag" />
+      {{ else }}
+        <span class="sb-logo-text">Sensible Bag</span>
+      {{ end }}
+    </a>
+
+    {{/* 菜单中间 */}}
+    <nav class="sb-menu">
+      <a href="/">Home</a>
+      <a href="/collection/">Collection</a>
+      <a href="/about/">Company Profile</a>
+      <a href="/craftsmanship/">Our Process</a>
+      <a href="/contact/">Contact</a>
+      <a href="/contact/" class="sb-cta">Custom Service</a>
+    </nav>
+
+    {{/* 汉堡按钮（移动端） */}}
+    <button class="sb-hamburger" onclick="document.getElementById('sb-mobile-menu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+
+  {{/* 移动端菜单 */}}
+  <div id="sb-mobile-menu">
+    <a href="/">Home</a>
+    <a href="/collection/">Collection</a>
+    <a href="/about/">Company Profile</a>
+    <a href="/craftsmanship/">Our Process</a>
+    <a href="/contact/">Contact</a>
+    <a href="/contact/">Custom Service</a>
+  </div>
+</header>
