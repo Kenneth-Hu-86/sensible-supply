@@ -1,5 +1,6 @@
 {
-  "buildCommand": "hugo --minify -b https://sensiblesupplysolutions.com/",
+  "buildCommand": "hugo --minify",
   "outputDirectory": "public",
-  "framework": "hugo"
+  "framework": "hugo",
+  "installCommand": ""
 }
