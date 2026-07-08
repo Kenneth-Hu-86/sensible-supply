@@ -143,6 +143,9 @@ body > div > header.py-6 {
 .prose {
   max-width: 100% !important;
 }
+.max-w-prose {
+  max-width: none !important;
+}
 article.prose {
   max-width: 100% !important;
   padding: 0 !important;
